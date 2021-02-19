@@ -1,0 +1,19 @@
+<div>
+  <span [ngSwitch]="task.category">
+    <span *ngSwitchCase="'Hogar'">
+      🏠
+    </span>
+    <span *ngSwitchCase="'Estudiar'">
+      📚
+    </span>
+    <span *ngSwitchCase="'Otros'">
+      🎒
+    </span>
+
+  </span>
+  {{ i }} - {{ task.title }}
+  <span *ngIf="task.state === true"> ✅ </span>
+  <span *ngIf="task.state === false"> ☑️ </span>
+</div>
+
+
