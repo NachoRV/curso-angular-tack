@@ -1,1 +1,18 @@
-<p>new-task works!</p>
+<section>
+<h2>Alta de tarea</h2>
+<form [formGroup]="taresForm2">
+  Titulo*: <input type="text" formControlName="title" placeholder="__/__/__" > 
+  <span *ngIf="isValidTitle">*</span>
+  <select name="categoria" id="categoria" formControlName="category">
+    <option value="Estudiar"> Estudiar</option>
+    <option value="Otros"> Otros</option>
+    <option value="Hogar">Hogar </option>
+  </select>
+  <textarea formControlName="description"></textarea>
+  <button (click)="send()"> Guardar </button>
+</form>
+
+{{ taresForm2.value | json}}
+{{ taresForm2.valid }}
+</section>
+

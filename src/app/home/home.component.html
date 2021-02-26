@@ -1,8 +1,13 @@
 <div class="wrapper">
   <h1> {{ title }}</h1>
+    Buscar: 
+    <input type="text" [(ngModel)]="textSearch">{{ textSearch }}
     <app-item
-      *ngFor="let tarea of tareas; let i = index"
+      *ngFor="let tarea of search; let i = index"
       [task]="tarea"
-      [i]="index" >
+      [i]="index"
+      (doneTarea)="doneTarea($event)"
+      (deleteTarea)="delete($event)" >
     </app-item>
 </div>
+
