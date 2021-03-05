@@ -28,14 +28,14 @@ export class NewTaskComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.taresForm2.get('description').setValue('Hola que tal')
+    this.taresForm2.get('description').setValue('Hola que tal estas')
 
   }
 
   get isValidTitle(): boolean {
     return this.taresForm2.get('title').invalid;
   }
-  get isvalid() {
+  get isValid() {
     return this.isValidTitle2;
   }
   send() {
