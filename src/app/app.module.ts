@@ -9,6 +9,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ItemComponent } from './components/item/item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import  { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login/login.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { AddEmojiPipe } from './pipes/add-emoji.pipe'
+import { LoginModuleModule } from './login-module/login-module.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +22,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     NewTaskComponent,
     HeaderComponent,
     FooterComponent,
-    ItemComponent
+    ItemComponent,
+    LoginComponent,
+    MainLayoutComponent,
+    AddEmojiPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    LoginModuleModule
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]

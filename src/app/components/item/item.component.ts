@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Tarea } from 'src/app/home/home.component';
+import { Router } from '@angular/router';
+import { Tarea } from '../../interfaces/task.interface';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class ItemComponent implements OnInit {
   @Output() doneTarea = new EventEmitter<number>();
   @Output() deleteTarea = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +27,9 @@ export class ItemComponent implements OnInit {
   }
   delete(): void {
     this.deleteTarea.emit(this.task.id);
+  }
+  edit(): void {
+    this.router.navigate([`/new/${this.task.id}`])
   }
 
 }

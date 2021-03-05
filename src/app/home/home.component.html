@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <h1> {{ title }}</h1>
+  <h1> {{ title | addEmoji  }}</h1>
     Buscar: 
     <input type="text" [(ngModel)]="textSearch">{{ textSearch }}
     <app-item

@@ -27,6 +27,19 @@
       "description": "Estudiar Angular, repasar las estructuras de control",
       "state": false,
       "category": "Otros"
+    },
+    {
+      "id": 56,
+      "title": "Estudiar Angular este finde",
+      "description": "Estudiar Angular, repasar las estructuras de control",
+      "state": false,
+      "category": "Estudiar"
+    },
+    {
+      "title": "Hola desde el formulario",
+      "category": "Otros",
+      "description": "Hola que tal estas",
+      "id": 12
     }
   ]
 }

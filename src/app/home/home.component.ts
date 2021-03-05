@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../services/task.service';
+import { Tarea } from '../interfaces/task.interface';
+import { filter } from 'rxjs/operators';
 
-export interface Tarea {
-  id: number;
-  title: string;
-  description: string;
-  state: boolean;
-  category: string;
-}
 
 @Component({
   selector: 'app-home',
@@ -16,14 +12,24 @@ export interface Tarea {
 export class HomeComponent implements OnInit {
 
   title = 'Lista de tareas';
-  tareas: Tarea[] = [
-
-  ];
+  tareas: Tarea[] = [];
   textSearch = '';
 
-  constructor() {}
+  constructor(
+    private taskService: TaskService
+  ) {}
 
   ngOnInit(): void {
+    this.taskService.getTasks()
+      .subscribe(
+      tasks => {
+        this.tareas = tasks;
+      },
+      error => {
+        console.log('error', error)
+      }
+    )
+
   }
   get search(): Tarea[] {
 /*     return this.tareas.filter( function (tarea) {

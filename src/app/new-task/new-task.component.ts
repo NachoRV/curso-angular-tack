@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TaskService } from '../services/task.service';
+import { Tarea } from '../interfaces/task.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-task',
@@ -24,11 +27,19 @@ export class NewTaskComponent implements OnInit {
  })
   constructor(
     private fb : FormBuilder,
+    private taskService: TaskService,
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-   
-    this.taresForm2.get('description').setValue('Hola que tal estas')
+    const id = this.router.snapshot.params.id;
+    console.log(id)
+    if(id) {
+      this.taskService.getTaskById(id).subscribe(
+        task => this.taresForm2.patchValue(task)
+      )
+    }
+     /* this.taresForm2.get('description').setValue('Hola que tal estas') */
 
   }
 
@@ -42,7 +53,11 @@ export class NewTaskComponent implements OnInit {
     console.log('send')
 
     if(this.taresForm2.value) {
-      console.log(this.taresForm2.value)
+      let tarea = this.taresForm2.value;
+      tarea.id = 12
+      this.taskService.newTask(tarea).subscribe(
+        response => console.log(response)
+      )
     }
   }
 }
