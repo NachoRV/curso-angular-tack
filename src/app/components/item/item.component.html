@@ -12,8 +12,9 @@
 
   </span>
   {{ i }} - {{ task.title }}
-  <span *ngIf="task.state === true"> ✅ </span>
-  <span *ngIf="task.state === false"> ☑️ </span>
+  <span class="icon" *ngIf="task.state === true" (click)="done()"> ✅ </span>
+  <span  class="icon" *ngIf="task.state === false" (click)="done()"> ☑️ </span>
+  <span class="icon" (click)="delete()"> ❌ </span>
 </div>
 
 
