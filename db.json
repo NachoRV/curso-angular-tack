@@ -2,7 +2,7 @@
     "tasks":[
         {
           "id": 1,
-          title: 'Ir a la compra',
+          "title": 'Ir a la compra',
           description: 'Ir a comprar el pan',
           state: true,
           category: 'Hogar'
